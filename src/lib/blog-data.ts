@@ -1,7 +1,7 @@
 export interface BlogPost {
   slug: string;
   title: string;
-  date: string;
+  date: string; publishedAt: string;
   category: string;
   excerpt: string;
   image?: string;
@@ -12,7 +12,7 @@ export const blogPosts: BlogPost[] = [
   {
     slug: 'how-to-choose-the-right-purse-manufacturer-for-your-brand',
     title: 'How to Choose the Right Purse Manufacturer for Your Brand',
-    date: 'May 2, 2026',
+    date: 'May 2, 2026', publishedAt: '2026-05-02',
     category: 'Purse Manufacturing',
     excerpt: "Launching a handbag line is exciting—but choosing the right purse manufacturer can make or break your brand. From product quality to profit margins, your manufacturer plays a huge role in your success.",
     image: 'https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=1200&h=675&fit=crop',
@@ -152,10 +152,33 @@ If you're looking for a reliable partner, **Purse Manufacturer** is here to help
   },
 ];
 
-export function getPostBySlug(slug: string): BlogPost | undefined {
-  return blogPosts.find(post => post.slug === slug);
+
+/** Current date in America/Los_Angeles as YYYY-MM-DD. */
+function getTodayLA(): string {
+  return new Date().toLocaleDateString('en-CA', { timeZone: 'America/Los_Angeles' });
 }
 
+/**
+ * Only posts whose publishedAt is <= today (America/Los_Angeles).
+ * Use for all public-facing listings and lookups so scheduled posts
+ * stay invisible until their date.
+ */
+export function getPublishedPosts(): BlogPost[] {
+  const today = getTodayLA();
+  return blogPosts.filter(post => post.publishedAt <= today);
+}
+
+/** Published post by slug — undefined if not found or not yet published. */
+export function getPostBySlug(slug: string): BlogPost | undefined {
+  return getPublishedPosts().find(post => post.slug === slug);
+}
+
+/** Slugs of published posts (generateStaticParams). */
 export function getAllPostSlugs(): string[] {
-  return blogPosts.map(post => post.slug);
+  return getPublishedPosts().map(post => post.slug);
+}
+
+/** ALL posts (published + scheduled) — /api/posts feed & admin only. */
+export function getAllPosts(): BlogPost[] {
+  return blogPosts;
 }
