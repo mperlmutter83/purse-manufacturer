@@ -1,38 +1,50 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Abril_Fatface, Poppins } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const abril = Abril_Fatface({
   subsets: ["latin"],
+  weight: "400",
+  variable: "--font-abril",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const poppins = Poppins({
   subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-poppins",
 });
 
 export const metadata: Metadata = {
-  title: {
-    default: "Purse Manufacturer | Custom Handbag Manufacturing",
-    template: "%s | Purse Manufacturer",
-  },
-  description: "Experts in purse and handbag manufacturing. From concept to production, we transform your handbag ideas into high-quality products ready for market success.",
-  keywords: ["purse manufacturer", "handbag manufacturing", "custom handbags", "private label bags", "bag production", "purse design", "handbag prototyping"],
+  metadataBase: new URL("https://pursemanufacturer.com"),
+  title:
+    "Purse Manufacturer | Experts in the world of purse and handbag manufacturing",
+  description:
+    "Purse Manufacturer transforms your handbag concepts into high-quality products. Custom design, prototyping, and full-scale production for brands of all sizes. Call (818) 855-5821.",
   openGraph: {
-    title: "Purse Manufacturer | Custom Handbag Manufacturing",
-    description: "Experts in purse and handbag manufacturing. From concept to production, we transform your handbag ideas into high-quality products.",
-    url: "https://pursemanufacturer.com",
     siteName: "Purse Manufacturer",
     locale: "en_US",
     type: "website",
   },
-  twitter: {
-    card: "summary",
-    title: "Purse Manufacturer | Custom Handbag Manufacturing",
-    description: "Experts in purse and handbag manufacturing. From concept to production.",
+};
+
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "Purse Manufacturer",
+  url: "https://pursemanufacturer.com",
+  telephone: "(818) 855-5821",
+  email: "info@pursemanufacturer.com",
+  logo: "https://pursemanufacturer.com/images/logo.png",
+  image: "https://pursemanufacturer.com/images/hero.jpg",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "17119 Lassen St",
+    addressLocality: "Northridge",
+    addressRegion: "CA",
+    postalCode: "91325",
+    addressCountry: "US",
   },
 };
 
@@ -42,36 +54,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${abril.variable} ${poppins.variable}`}>
       <head>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "Organization",
-              "name": "Purse Manufacturer",
-              "description": "Experts in the world of purse and handbag manufacturing. From concept to production, we transform your handbag ideas into high-quality products.",
-              "url": "https://pursemanufacturer.com",
-              "telephone": "+1-818-855-5821",
-              "email": "info@pursemanufacturer.com",
-              "address": {
-                "@type": "PostalAddress",
-                "streetAddress": "17119 Lassen St",
-                "addressLocality": "Northridge",
-                "addressRegion": "CA",
-                "postalCode": "91325",
-                "addressCountry": "US"
-              },
-              "sameAs": [],
-              "serviceType": ["Handbag Manufacturing", "Purse Design", "Prototyping", "Private Label Production"]
-            })
+            __html: JSON.stringify(organizationSchema),
           }}
         />
       </head>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-white`}
-      >
+      <body>
         <Header />
         <main>{children}</main>
         <Footer />

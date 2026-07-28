@@ -1,81 +1,89 @@
 'use client';
 
-import Link from 'next/link';
 import { useState } from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
+
+const navLinks = [
+  { label: 'Purse Manufacturer', href: '/' },
+  { label: 'About Us', href: '/about-us' },
+  { label: 'Services', href: '/services' },
+  { label: 'Blog', href: '/blog' },
+  { label: 'Contact Us', href: '/contact-us' },
+];
 
 export default function Header() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
-  const navigation = [
-    { name: 'Home', href: '/' },
-    { name: 'About', href: '/about' },
-    { name: 'Services', href: '/services' },
-    { name: 'Blog', href: '/blog' },
-    { name: 'Contact', href: '/contact' },
-  ];
+  const [open, setOpen] = useState(false);
 
   return (
-    <header className="bg-white sticky top-0 z-50 border-b border-gray-100">
-      <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between h-20 items-center">
-          <Link href="/" className="flex items-center">
-            <span className="text-xl font-bold text-gray-900">Purse Manufacturer</span>
-          </Link>
+    <header className="bg-dark sticky top-0 z-50">
+      <div className="max-w-6xl mx-auto px-4 flex items-center justify-between">
+        <Link href="/" aria-label="Purse Manufacturer" className="py-2">
+          <Image
+            src="/images/logo.png"
+            alt="Purse Manufacturer"
+            width={64}
+            height={64}
+            priority
+          />
+        </Link>
 
-          <div className="hidden md:flex items-center space-x-8">
-            {navigation.map((item) => (
-              <Link
-                key={item.name}
-                href={item.href}
-                className="text-gray-600 hover:text-rose-600 font-medium transition-colors"
-              >
-                {item.name}
-              </Link>
-            ))}
-            <a
-              href="tel:+18188555821"
-              className="bg-rose-600 text-white px-5 py-2.5 rounded-lg hover:bg-rose-700 transition-colors font-semibold"
+        {/* Desktop nav */}
+        <nav className="hidden lg:flex items-center gap-8">
+          {navLinks.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              className="text-white text-sm font-sans font-medium hover:text-gold transition-colors"
             >
-              (818) 855-5821
-            </a>
-          </div>
-
-          <button
-            type="button"
-            className="md:hidden p-2 rounded-md text-gray-600"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              {link.label}
+            </Link>
+          ))}
+          <a
+            href="tel:+18188555821"
+            className="text-white text-sm font-sans font-semibold hover:text-gold transition-colors"
           >
-            <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              {mobileMenuOpen ? (
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-              ) : (
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-              )}
-            </svg>
-          </button>
-        </div>
+            (818) 855-5821
+          </a>
+        </nav>
 
-        {mobileMenuOpen && (
-          <div className="md:hidden py-4 border-t border-gray-100">
-            {navigation.map((item) => (
-              <Link
-                key={item.name}
-                href={item.href}
-                className="block py-3 text-gray-600 hover:text-rose-600 font-medium"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                {item.name}
-              </Link>
-            ))}
-            <a
-              href="tel:+18188555821"
-              className="block mt-4 bg-rose-600 text-white px-4 py-3 rounded-lg text-center font-semibold"
+        {/* Mobile hamburger */}
+        <button
+          className="lg:hidden text-white p-2"
+          onClick={() => setOpen(!open)}
+          aria-label="Toggle menu"
+        >
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            {open ? (
+              <path d="M6 6l12 12M18 6L6 18" />
+            ) : (
+              <path d="M3 6h18M3 12h18M3 18h18" />
+            )}
+          </svg>
+        </button>
+      </div>
+
+      {/* Mobile menu */}
+      {open && (
+        <nav className="lg:hidden bg-dark border-t border-white/10 px-4 pb-4">
+          {navLinks.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              onClick={() => setOpen(false)}
+              className="block text-white text-sm font-sans py-3 border-b border-white/5"
             >
-              Call (818) 855-5821
-            </a>
-          </div>
-        )}
-      </nav>
+              {link.label}
+            </Link>
+          ))}
+          <a
+            href="tel:+18188555821"
+            className="block text-gold text-sm font-sans font-semibold py-3"
+          >
+            (818) 855-5821
+          </a>
+        </nav>
+      )}
     </header>
   );
 }

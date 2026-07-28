@@ -1,26 +1,8 @@
 {
-  "$schema": "https://openapi.vercel.sh/vercel.json",
-  "framework": "nextjs",
   "redirects": [
-    {
-      "source": "/about-us",
-      "destination": "/about",
-      "permanent": true
-    },
-    {
-      "source": "/contact-us",
-      "destination": "/contact",
-      "permanent": true
-    },
-    {
-      "source": "/how-to-choose-the-right-purse-manufacturer-for-your-brand",
-      "destination": "/blog/how-to-choose-the-right-purse-manufacturer-for-your-brand",
-      "permanent": true
-    },
-    {
-      "source": "/category/:path*",
-      "destination": "/blog",
-      "permanent": true
-    }
+    { "source": "/category/:slug", "destination": "/blog", "permanent": true },
+    { "source": "/blog/page/:n", "destination": "/blog", "permanent": true },
+    { "source": "/about", "destination": "/about-us", "permanent": true },
+    { "source": "/contact", "destination": "/contact-us", "permanent": true }
   ]
 }
