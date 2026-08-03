@@ -5,9 +5,9 @@ import ContactForm from '@/components/ContactForm';
 import FAQ from '@/components/FAQ';
 
 export const metadata: Metadata = {
-  title: 'Contact Us | Purse Manufacturer',
+  title: 'Contact Us | Purse Manufacturers',
   description:
-    'Contact Purse Manufacturer to discuss your handbag production project. Call (818) 855-5821 or send us a message today.',
+    'Contact Purse Manufacturers to discuss your handbag production project. Call (818) 855-5821 or send us a message today.',
 };
 
 const contactCards = [
@@ -34,7 +34,7 @@ const contactCards = [
   },
   {
     label: 'Address',
-    value: '17119 Lassen St, Northridge, CA 91325',
+    value: '17119 Lassen St., Northridge, CA 91325',
     href: 'https://maps.google.com/?q=17119+Lassen+St+Northridge+CA+91325',
     icon: (
       <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#22577a" strokeWidth="2">
@@ -47,7 +47,7 @@ const contactCards = [
 
 const faqs = [
   {
-    question: 'How can I contact Purse Manufacturer?',
+    question: 'How can I contact Purse Manufacturers?',
     answer:
       'You can reach us via our contact form on the website or email us directly at info@pursemanufacturer.com.',
   },
@@ -79,7 +79,7 @@ export default function ContactUs() {
       {/* Hero — solid dark (matches the original contact page) */}
       <section className="bg-dark py-24 md:py-36 text-center">
         <div className="max-w-4xl mx-auto px-4">
-          <p className="eyebrow mb-4">Connect with Purse Manufacturer</p>
+          <p className="eyebrow mb-4">Connect with Purse Manufacturers</p>
           <h1 className="text-white text-4xl md:text-6xl leading-tight mb-6 italic">
             Your Partner in High-Quality Handbag Production
           </h1>

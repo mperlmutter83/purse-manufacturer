@@ -116,7 +116,7 @@ export default function Home() {
                 End-to-End Purse Manufacturing
               </h2>
               <p className="text-ink/80 leading-relaxed">
-                Purse Manufacturer offers a comprehensive suite of services for
+                Purse Manufacturers offers a comprehensive suite of services for
                 brands, entrepreneurs, and retailers. We guide you from the
                 initial idea through to the final product, ensuring quality and
                 efficiency at every stage.
@@ -157,7 +157,7 @@ export default function Home() {
         <div className="max-w-6xl mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <Image
             src="/images/concept.jpg"
-            alt="Handbag design and manufacturing process at Purse Manufacturer"
+            alt="Handbag design and manufacturing process at Purse Manufacturers"
             width={1080}
             height={720}
             className="rounded-md w-full h-auto"
@@ -220,7 +220,7 @@ export default function Home() {
           <div>
             <h2 className="text-3xl md:text-4xl mb-4">Why Choose Us</h2>
             <p className="text-ink/70 mb-8">
-              Discover the advantages of partnering with Purse Manufacturer for
+              Discover the advantages of partnering with Purse Manufacturers for
               your handbag production needs.
             </p>
             <FAQ items={whyChooseUs} />
@@ -239,7 +239,7 @@ export default function Home() {
           </h2>
           <p className="text-white/80 leading-relaxed mb-8">
             Take the first step towards creating your unique handbag line with
-            Purse Manufacturer. Whether you&apos;re ready to launch your first
+            Purse Manufacturers. Whether you&apos;re ready to launch your first
             product or expand your existing collection, we&apos;re here to help
             you succeed.
           </p>

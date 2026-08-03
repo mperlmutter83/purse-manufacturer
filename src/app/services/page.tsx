@@ -5,7 +5,7 @@ import PageHero from '@/components/PageHero';
 import FAQ from '@/components/FAQ';
 
 export const metadata: Metadata = {
-  title: 'Services | Purse Manufacturer',
+  title: 'Services | Purse Manufacturers',
   description:
     'Custom handbag design, prototyping, and high-quality production services for brands, startups, and retailers.',
 };
@@ -101,7 +101,7 @@ export default function Services() {
         <div className="max-w-6xl mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <Image
             src="/images/services-content.jpg"
-            alt="Handbag design process at Purse Manufacturer"
+            alt="Handbag design process at Purse Manufacturers"
             width={800}
             height={1080}
             className="rounded-md w-full h-auto"
@@ -179,7 +179,7 @@ export default function Services() {
             Ready to bring your handbag vision to life? Contact us now to
             discuss your project and discover how we can make your ideas a
             reality. Whether you&apos;re launching a new line or enhancing an
-            existing collection, our team at Purse Manufacturer is here to
+            existing collection, our team at Purse Manufacturers is here to
             support you every step of the way. Let&apos;s create something
             extraordinary together.
           </p>

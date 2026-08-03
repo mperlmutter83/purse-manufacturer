@@ -160,7 +160,7 @@ Switching manufacturers later can be costly and disruptive.
 
 The best manufacturers go beyond production-they help you succeed.
 
-At **Purse Manufacturer**, we believe in:
+At **Purse Manufacturers**, we believe in:
 
 - Transparent communication
 
@@ -176,7 +176,7 @@ Choosing the right purse manufacturer is one of the most important decisions you
 
 ## Ready to Launch Your Handbag Line?
 
-If you're looking for a reliable partner, **Purse Manufacturer** is here to help. Whether you're starting from scratch or scaling your business, we provide the expertise and support you need-without unnecessary risk.`
+If you're looking for a reliable partner, **Purse Manufacturers** is here to help. Whether you're starting from scratch or scaling your business, we provide the expertise and support you need-without unnecessary risk.`
   }
 ];
 

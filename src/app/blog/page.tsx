@@ -6,9 +6,9 @@ import NewsletterForm from '@/components/NewsletterForm';
 import { getMergedPosts } from '@/lib/posts';
 
 export const metadata: Metadata = {
-  title: 'Blog | Purse Manufacturer',
+  title: 'Blog | Purse Manufacturers',
   description:
-    'Insights on handbag design and manufacturing from Purse Manufacturer — trends, tips, and industry expertise.',
+    'Insights on handbag design and manufacturing from Purse Manufacturers — trends, tips, and industry expertise.',
 };
 
 export default async function Blog() {
@@ -18,7 +18,7 @@ export default async function Blog() {
     <>
       <PageHero
         eyebrow="Discover the Craft of Exceptional Handbags"
-        title="Welcome to Purse Manufacturer"
+        title="Welcome to Purse Manufacturers"
         subtext="Explore the artistry and innovation behind our high-quality purse and handbag creations. Dive into the world of bespoke design and manufacturing excellence."
         ctaText="Learn More"
         ctaHref="#posts"

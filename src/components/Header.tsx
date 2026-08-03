@@ -5,7 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 const navLinks = [
-  { label: 'Purse Manufacturer', href: '/' },
+  { label: 'Purse Manufacturers', href: '/' },
   { label: 'About Us', href: '/about-us' },
   { label: 'Services', href: '/services' },
   { label: 'Blog', href: '/blog' },
@@ -18,10 +18,10 @@ export default function Header() {
   return (
     <header className="bg-dark sticky top-0 z-50">
       <div className="max-w-6xl mx-auto px-4 flex items-center justify-between">
-        <Link href="/" aria-label="Purse Manufacturer" className="py-2">
+        <Link href="/" aria-label="Purse Manufacturers" className="py-2">
           <Image
             src="/images/logo.png"
-            alt="Purse Manufacturer"
+            alt="Purse Manufacturers"
             width={64}
             height={64}
             priority

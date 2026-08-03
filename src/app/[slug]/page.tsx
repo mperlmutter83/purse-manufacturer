@@ -25,7 +25,7 @@ export async function generateMetadata({
   const post = await getMergedPost(slug);
   if (!post) return {};
   return {
-    title: `${post.title} | Purse Manufacturer`,
+    title: `${post.title} | Purse Manufacturers`,
     description: post.excerpt || undefined,
   };
 }

@@ -19,11 +19,11 @@ const poppins = Poppins({
 export const metadata: Metadata = {
   metadataBase: new URL("https://pursemanufacturer.com"),
   title:
-    "Purse Manufacturer | Experts in the world of purse and handbag manufacturing",
+    "Purse Manufacturers | Experts in the world of purse and handbag manufacturing",
   description:
-    "Purse Manufacturer transforms your handbag concepts into high-quality products. Custom design, prototyping, and full-scale production for brands of all sizes. Call (818) 855-5821.",
+    "Purse Manufacturers transforms your handbag concepts into high-quality products. Custom design, prototyping, and full-scale production for brands of all sizes. Call (818) 855-5821.",
   openGraph: {
-    siteName: "Purse Manufacturer",
+    siteName: "Purse Manufacturers",
     locale: "en_US",
     type: "website",
   },
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
 const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
-  name: "Purse Manufacturer",
+  name: "Purse Manufacturers",
   url: "https://pursemanufacturer.com",
   telephone: "(818) 855-5821",
   email: "info@pursemanufacturer.com",
@@ -40,7 +40,7 @@ const organizationSchema = {
   image: "https://pursemanufacturer.com/images/hero.jpg",
   address: {
     "@type": "PostalAddress",
-    streetAddress: "17119 Lassen St",
+    streetAddress: "17119 Lassen St.",
     addressLocality: "Northridge",
     addressRegion: "CA",
     postalCode: "91325",

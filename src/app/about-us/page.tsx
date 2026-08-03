@@ -3,9 +3,9 @@ import Link from 'next/link';
 import PageHero from '@/components/PageHero';
 
 export const metadata: Metadata = {
-  title: 'About Us | Purse Manufacturer',
+  title: 'About Us | Purse Manufacturers',
   description:
-    'Purse Manufacturer is committed to delivering exceptional quality and innovation in every handbag we produce. Learn our story.',
+    'Purse Manufacturers is committed to delivering exceptional quality and innovation in every handbag we produce. Learn our story.',
 };
 
 export default function AboutUs() {
@@ -41,7 +41,7 @@ export default function AboutUs() {
         <div className="max-w-4xl mx-auto px-4">
           <h2 className="text-3xl md:text-4xl mb-8">Our Story and Commitment</h2>
           <p className="text-ink/80 leading-relaxed mb-6">
-            Established with a passion for craftsmanship, Purse Manufacturer is
+            Established with a passion for craftsmanship, Purse Manufacturers is
             committed to delivering exceptional quality and innovation in every
             handbag we produce. Our mission is to empower brands by providing
             them with the tools and expertise needed to succeed in the
@@ -73,7 +73,7 @@ export default function AboutUs() {
           </h2>
           <p className="text-white/80 leading-relaxed mb-8">
             Ready to bring your handbag vision to life? Partner with Purse
-            Manufacturer, where expertise meets innovation. Whether you&apos;re
+            Manufacturers, where expertise meets innovation. Whether you&apos;re
             a startup or an established brand, our team is here to help you
             design, prototype, and produce high-quality purses that stand out.
             Contact us now to start your journey in the world of purse

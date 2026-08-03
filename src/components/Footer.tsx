@@ -2,7 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 const quickLinks = [
-  { label: 'Purse Manufacturer', href: '/' },
+  { label: 'Purse Manufacturers', href: '/' },
   { label: 'About Us', href: '/about-us' },
   { label: 'Services', href: '/services' },
   { label: 'Blog', href: '/blog' },
@@ -16,7 +16,7 @@ export default function Footer() {
         <div>
           <Image
             src="/images/logo.png"
-            alt="Purse Manufacturer"
+            alt="Purse Manufacturers"
             width={100}
             height={100}
             className="mb-4"
@@ -51,7 +51,7 @@ export default function Footer() {
           </h4>
           <ul className="space-y-3 text-sm text-white/70">
             <li>
-              17119 Lassen St
+              17119 Lassen St.
               <br />
               Northridge, CA 91325
             </li>
@@ -91,7 +91,7 @@ export default function Footer() {
 
       <div className="border-t border-white/10">
         <div className="max-w-6xl mx-auto px-4 py-5 text-center text-xs text-white/50">
-          &copy; {new Date().getFullYear()} Purse Manufacturer. All Rights Reserved.
+          &copy; {new Date().getFullYear()} Purse Manufacturers. All Rights Reserved.
         </div>
       </div>
     </footer>
