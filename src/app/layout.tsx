@@ -56,6 +56,22 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${abril.variable} ${poppins.variable}`}>
       <head>
+        {/* RFM site data - pushed before GTM loads */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `window.dataLayer = window.dataLayer || [];
+window.dataLayer.push({
+  rfm: {
+    schema_version: "1.0",
+    site_id: "purse_manufacturer",
+    provider_id: "f6ec7811-71b3-4f11-89bd-734fddc2a78c",
+    provider_name: "Purse Manufacturers",
+    service_category: "handbag_manufacturing",
+    market: "national"
+  }
+});`,
+          }}
+        />
         {/* Google Tag Manager */}
         <script
           dangerouslySetInnerHTML={{
