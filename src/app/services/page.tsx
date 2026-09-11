@@ -1,32 +1,14 @@
 import type { Metadata } from 'next';
-import Image from 'next/image';
 import Link from 'next/link';
 import PageHero from '@/components/PageHero';
 import FAQ from '@/components/FAQ';
+import { services } from '@/lib/services-data';
 
 export const metadata: Metadata = {
   title: 'Services | Purse Manufacturers',
   description:
-    'Custom handbag design, prototyping, and high-quality production services for brands, startups, and retailers.',
+    'Custom handbag design, prototyping, private label, small-batch and large-scale production, sourcing, branding, packaging, and more.',
 };
-
-const services = [
-  {
-    title: 'Custom Design Solutions',
-    description:
-      'Collaborate with our expert designers to create unique handbag styles that reflect your brand\u2019s identity.',
-  },
-  {
-    title: 'Prototyping and Sampling',
-    description:
-      'Experience our meticulous prototyping process to ensure your designs are perfectly realized before full production.',
-  },
-  {
-    title: 'High-Quality Production',
-    description:
-      'Benefit from our state-of-the-art manufacturing facilities that guarantee exceptional quality and timely delivery.',
-  },
-];
 
 const features = [
   {
@@ -96,30 +78,33 @@ export default function Services() {
         bgImage="/images/services-hero.jpg"
       />
 
-      {/* Services split */}
+      {/* Services grid */}
       <section id="services" className="py-20 md:py-28 bg-white">
-        <div className="max-w-6xl mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-          <Image
-            src="/images/services-content.jpg"
-            alt="Handbag design process at Purse Manufacturers"
-            width={800}
-            height={1080}
-            className="rounded-md w-full h-auto"
-          />
-          <div>
-            <h2 className="text-3xl md:text-4xl mb-10">
-              Our Handbag Manufacturing Services
-            </h2>
-            <div className="space-y-8">
-              {services.map((service) => (
-                <div key={service.title}>
-                  <h4 className="text-xl mb-2">{service.title}</h4>
-                  <p className="text-ink/70 text-sm leading-relaxed">
-                    {service.description}
-                  </p>
-                </div>
-              ))}
-            </div>
+        <div className="max-w-6xl mx-auto px-4">
+          <h2 className="text-3xl md:text-4xl mb-4 text-center">
+            Our Handbag Manufacturing Services
+          </h2>
+          <p className="text-ink/70 text-center max-w-2xl mx-auto mb-14">
+            From first sketch to finished collection, we offer every service
+            your brand needs under one roof. Explore each service to learn
+            more.
+          </p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            {services.map((service) => (
+              <Link
+                key={service.slug}
+                href={`/services/${service.slug}`}
+                className="bg-white rounded-md shadow-[0px_24px_72px_-12px_rgba(0,0,0,0.12)] p-7 hover:shadow-[0px_24px_72px_-12px_rgba(0,0,0,0.25)] transition-shadow border border-gray-100"
+              >
+                <h4 className="text-lg mb-3">{service.title}</h4>
+                <p className="text-ink/70 text-sm leading-relaxed">
+                  {service.short}
+                </p>
+                <span className="inline-block mt-4 text-teal font-sans font-semibold text-sm">
+                  Learn More &rarr;
+                </span>
+              </Link>
+            ))}
           </div>
         </div>
       </section>

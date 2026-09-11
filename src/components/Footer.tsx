@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import { services } from '@/lib/services-data';
 
 const quickLinks = [
   { label: 'Purse Manufacturers', href: '/' },
@@ -12,7 +13,7 @@ const quickLinks = [
 export default function Footer() {
   return (
     <footer className="bg-black text-white">
-      <div className="max-w-6xl mx-auto px-4 py-14 grid grid-cols-1 md:grid-cols-3 gap-10">
+      <div className="max-w-6xl mx-auto px-4 py-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
         <div>
           <Image
             src="/images/logo.png"
@@ -39,6 +40,24 @@ export default function Footer() {
                   className="text-sm text-white/70 hover:text-gold transition-colors"
                 >
                   {link.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div>
+          <h4 className="text-white font-sans font-semibold text-sm uppercase tracking-widest mb-4">
+            Our Services
+          </h4>
+          <ul className="space-y-2">
+            {services.map((service) => (
+              <li key={service.slug}>
+                <Link
+                  href={`/services/${service.slug}`}
+                  className="text-sm text-white/70 hover:text-gold transition-colors"
+                >
+                  {service.title}
                 </Link>
               </li>
             ))}
