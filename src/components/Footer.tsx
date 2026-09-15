@@ -8,6 +8,7 @@ const quickLinks = [
   { label: 'Services', href: '/services' },
   { label: 'Blog', href: '/blog' },
   { label: 'Contact Us', href: '/contact-us' },
+  { label: 'Looking for Work', href: '/looking-for-work' },
 ];
 
 export default function Footer() {
