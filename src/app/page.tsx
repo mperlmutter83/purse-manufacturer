@@ -3,6 +3,12 @@ import Link from 'next/link';
 import PageHero from '@/components/PageHero';
 import FAQ from '@/components/FAQ';
 
+export const metadata = {
+  alternates: {
+    canonical: "https://www.pursemanufacturer.com",
+  },
+};
+
 const services = [
   {
     title: 'Design & Development',
