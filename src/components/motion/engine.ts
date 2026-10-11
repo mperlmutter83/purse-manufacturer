@@ -293,7 +293,13 @@ export function startMotion(root: HTMLElement, FR: FramesManifest): () => void {
       if (tick) libs.gsap.ticker.remove(tick);
       libs.gsap.ticker.lagSmoothing(500, 33);
       lenis.destroy();
-      document.documentElement.classList.remove('lenis', 'lenis-smooth', 'lenis-scrolling', 'lenis-stopped');
+      // Lenis can re-add its class from a scroll timer that fires after destroy.
+      const clearLenisClasses = () =>
+        document.documentElement.classList.remove('lenis', 'lenis-smooth', 'lenis-scrolling', 'lenis-stopped');
+      clearLenisClasses();
+      window.setTimeout(() => {
+        if (!(window as Window & { __pmEngine?: boolean }).__pmEngine) clearLenisClasses();
+      }, 600);
     }
     lenis = null;
     tick = null;
