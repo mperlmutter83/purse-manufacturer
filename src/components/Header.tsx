@@ -1,8 +1,9 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 const navLinks = [
   { label: 'Purse Manufacturers', href: '/' },
@@ -15,8 +16,26 @@ const navLinks = [
 export default function Header() {
   const [open, setOpen] = useState(false);
 
+  // On the homepage the header floats over the scroll film: transparent at the
+  // top, solid once the visitor scrolls (or opens the mobile menu).
+  const overlay = usePathname() === '/';
+  const [scrolled, setScrolled] = useState(false);
+  useEffect(() => {
+    if (!overlay) return;
+    const onScroll = () => setScrolled(window.scrollY > 80);
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, [overlay]);
+
+  const headerClass = overlay
+    ? `fixed top-0 inset-x-0 z-50 transition-colors duration-500 ${
+        scrolled || open ? 'bg-dark/85 backdrop-blur-md border-b border-white/10' : 'bg-transparent'
+      }`
+    : 'bg-dark sticky top-0 z-50';
+
   return (
-    <header className="bg-dark sticky top-0 z-50">
+    <header className={headerClass}>
       <div className="max-w-6xl mx-auto px-4 flex items-center justify-between">
         <Link href="/" aria-label="Purse Manufacturers" className="py-2">
           <Image

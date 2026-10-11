@@ -1,0 +1,12 @@
+{
+  "version": "20261010180936",
+  "count": 290,
+  "width": 1600,
+  "height": 900,
+  "path": "/motion/frames/",
+  "prefix": "frame_",
+  "digits": 4,
+  "ext": ".webp",
+  "poster": "/motion/frames/poster.webp",
+  "posterPortrait": "/motion/frames/poster-portrait.webp"
+}
