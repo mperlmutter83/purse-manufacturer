@@ -85,12 +85,25 @@ function preload(FR: FramesManifest, onProgress: (p: number) => void): Promise<v
           inflight++;
           const img = new Image();
           img.decoding = 'async';
+          // Prefer a decoded frame (smoother scrubbing), but don't wait on decode()
+          // forever: browsers can defer it in a background tab. Once the image has
+          // loaded, give decode() 3s (none if the tab is hidden), then count it as ready.
+          const loaded = new Promise<boolean>((resolve) => {
+            img.onload = () => resolve(true);
+            img.onerror = () => resolve(false);
+          });
           img.src = versioned(FR, FR.path + FR.prefix + String(i + 1).padStart(FR.digits, '0') + FR.ext);
           // Safari can reject decode() for an image that did load; trust naturalWidth then.
-          img.decode().then(
-            () => finish(i, img, true),
-            () => finish(i, img, img.complete && img.naturalWidth > 0),
+          const decoded = img.decode().then(
+            () => true,
+            () => img.complete && img.naturalWidth > 0,
           );
+          Promise.race([
+            decoded,
+            loaded.then((ok) =>
+              ok ? new Promise<boolean>((r) => setTimeout(() => r(true), document.hidden ? 0 : 3000)) : false,
+            ),
+          ]).then((ok) => finish(i, img, ok));
         }
       };
       pump();
